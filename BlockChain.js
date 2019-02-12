@@ -330,14 +330,14 @@ class Blockchain {
                     
                     if(!mempoolvalid){
                         let timeElapse = (new Date().getTime().toString().slice(0,-3)) - objectTemp.requestTimeStamp;
-                        let timeLeft = (TimeoutRequestsWindowTime/1000)*2 - timeElapse;
+                        let timeLeft = (TimeoutRequestsWindowTime/1000)*6 - timeElapse;
                         let validReqObj = new ValidRequestObj.ValidRequestObj(true,objectTemp.walletAddress,objectTemp.requestTimeStamp,objectTemp.message,timeLeft,true);
                         self.mempoolValid.push(validReqObj);
-                        self.timeoutMemPoolValid[objectTemp.walletAddress] = setTimeout(function(){ self.removeFromMemPoolValid(objectTemp.walletAddress) }, TimeoutRequestsWindowTime*2 );
+                        self.timeoutMemPoolValid[objectTemp.walletAddress] = setTimeout(function(){ self.removeFromMemPoolValid(objectTemp.walletAddress) }, TimeoutRequestsWindowTime*6 );
                         resolve(validReqObj);
                     }else{
                         let timeElapse = (new Date().getTime().toString().slice(0,-3)) - mempoolvalid.status.requestTimeStamp;
-                        let timeLeft = (TimeoutRequestsWindowTime/1000)*2 - timeElapse;
+                        let timeLeft = (TimeoutRequestsWindowTime/1000)*6 - timeElapse;
                         mempoolvalid.status.validationWindow=timeLeft;
                         resolve(mempoolvalid);
                     }
