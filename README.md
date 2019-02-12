@@ -1,8 +1,9 @@
 #  Securing Digital Assets on Private Blockchain
 Star Registry Service that allows users to claim ownership of your favorite star in the night sky.
-Project developed using Node.js Express Framework, LevelDB to interact with the private blockchain.
+Project developed using Node.js Express Framework, LevelDB to interact with the private blockchain. The application has the mempool component that will store temporal validation requests for 5 minutes (300 seconds)
+and temporal valid requests for 30 minutes (1800 seconds).
 
-REST API has two endpoints
+REST API has endpoints
 1. Validation request : http://localhost:8000/requestValidation
 2. Proof of Existence/Signature Validation   : http://localhost:8000/message-signature/validate
 3. Post Block/Star : http://localhost:8000/block
@@ -126,7 +127,7 @@ __Response__
 }
 ```
 ### Get Blocks by Wallet Address http://localhost:8000/stars/address/:address
-__input__
+__Input__
 ```
 http://localhost:8000/stars/address/1HZwkjkeaoZfTSaJxDw6aKkxp45agDiEzN
 ```
@@ -151,7 +152,7 @@ __Response__
 ```
 ### Get Block by Height  http://localhost:8000/block/:height
 
-__input__
+__Input__
 ```
 http://localhost:8000/block/1
 ```
